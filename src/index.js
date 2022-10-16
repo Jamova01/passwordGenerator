@@ -1,21 +1,21 @@
+const buttonCopy = document.getElementById("button-copy");
+const form = document.getElementById("passwordGeneratorForm");
+const passwordDisplay = document.getElementById("passwordDisplay");
 const characterAmountRange = document.getElementById("characterAmountRange");
 const characterAmountNumber = document.getElementById("characterAmountNumber");
-const form = document.getElementById("passwordGeneratorForm");
-const buttonCopy = document.getElementById("button-copy");
-const passwordDisplay = document.getElementById("passwordDisplay");
 
 characterAmountRange.addEventListener("input", syncCharacterAmount);
 characterAmountNumber.addEventListener("input", syncCharacterAmount);
 
 const LETTERS_CHAR_CODES = arrayFromLowToHigh(97, 122).map(char =>
   (String.fromCharCode(char))
-)
+);
 const NUMBERS_CHAR_CODES = arrayFromLowToHigh(48, 57).map(char =>
   (String.fromCharCode(char))
-)
+);
 const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).map(char =>
   (String.fromCharCode(char))
-)
+);
 
 function arrayFromLowToHigh(low, high) {
   const array = []
@@ -40,7 +40,7 @@ function copyToClipboard(target) {
   const value = element.value;
 
   if (value.length === 0) {
-    alert("You must generate a password")
+    alert("You must generate a password");
   } else {
     window.navigator.clipboard.writeText(value);
     alert("Copied password");
@@ -64,8 +64,8 @@ function generatePassword(characterAmount, checks) {
 
   let passwordCharacters = [];
   for (let i = 0; i < characterAmount; i++) {
-    const characterCode = charCodes[getRandomNumber(0, charCodes.length - 1)]
-    const randomCharacter = characterCode[getRandomNumber(0, characterCode.length - 1)]
+    const characterCode = charCodes[getRandomNumber(0, charCodes.length - 1)];
+    const randomCharacter = characterCode[getRandomNumber(0, characterCode.length - 1)];
     passwordCharacters.push(randomCharacter);
   }
 
@@ -76,7 +76,7 @@ function generatePassword(characterAmount, checks) {
 form.addEventListener("submit", e => {
   e.preventDefault();
   const formElement = e.target;
-  const characterAmount = characterAmountNumber.value
+  const characterAmount = characterAmountNumber.value;
 
   const checks = {
     letters: formElement.letters.checked,
@@ -84,7 +84,7 @@ form.addEventListener("submit", e => {
     symbols: formElement.symbols.checked,
   }
 
-  generatePassword(characterAmount, checks)
+  generatePassword(characterAmount, checks);
 })
 
 buttonCopy.addEventListener("click", () => {
