@@ -4,8 +4,6 @@ const form = document.getElementById("passwordGeneratorForm");
 const buttonCopy = document.getElementById("button-copy");
 const passwordDisplay = document.getElementById("passwordDisplay");
 
-const API = "https://goquotes-api.herokuapp.com/api/v1/random?count=5";
-
 characterAmountRange.addEventListener("input", syncCharacterAmount);
 characterAmountNumber.addEventListener("input", syncCharacterAmount);
 
